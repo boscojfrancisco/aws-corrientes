@@ -8,49 +8,42 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* ── PALETA OFICIAL GOBIERNO DE CORRIENTES ── */
-  /* Blancos */
-  --white:          #FFFFFF;   /* Blanco puro                      */
-  /* Amarillos */
-  --amarillo:       #FACD05;   /* Amarillo Claro  RGB 250,205,5    */
-  --amarillo-dark:  #FAAE05;   /* Amarillo Oscuro RGB 250,174,5    */
-  /* Rojos */
-  --red:            #F4492E;   /* Rojo Claro      RGB 244,73,46    */
-  --red-dark:       #90B4E1;   /* Celeste Claro reemplazando rojo */
-  --red-light:      #f87a67;   /* Rojo suave extendido             */
-  --bordo:          #769FD3;   /* Celeste Oscuro reemplazando bordó */
-  /* Celestes */
-  --celeste:        #90B4E1;   /* Celeste Claro   – PANTONE 283 C  */
-  --celeste-dark:   #769FD3;   /* Celeste Oscuro  – PANTONE 284 C  */
-  --celeste-light:  #b8d0ee;   /* Tint claro                       */
-  /* Verdes */
-  --verde:          #719C29;   /* Verde Claro     – PANTONE 369 C  */
-  --verde-dark:     #356F23;   /* Verde Oscuro    – PANTONE 364 C  */
-  /* Neutros */
-  --negro:          #2E2D2C;   /* Negro           – PANTONE Black C */
-  --negro-soft:     #3d3c3b;
-  --gris:           #EDEDED;   /* Gris Claro      – Cool Gray 1C   */
-  --gray-50:        #fafaf8;
-  --gray-100:       #f2f1ef;
-  --gray-200:       #dddcda;
-  --gray-400:       #9a9896;
-  --gray-600:       #6a6866;
-  --gray-800:       #3d3c3b;
-  /* Colores de superficie */
-  --surface-light:  #f5f4f1;   /* Secón clara principal */
-  --surface-dark:   #0e203b;   /* Azul profundo – derivado de #769FD3 */
-  --surface-card:   #ffffff;   /* Cards */
-  /* AWS accent = Amarillo Oscuro oficial */
-  --aws:            #FAAE05;
-  --aws-dark:       #d99500;
+  /* ── PALETA AZUL (referencia visual solicitada) ── */
+  --white:          #F5F5F5;
+  --amarillo:       #85B7E1;
+  --amarillo-dark:  #6EA4D4;
+  --red:            #13304D;
+  --red-dark:       #0F2740;
+  --red-light:      #A7CAE8;
+  --bordo:          #13304D;
+  --celeste:        #90B4E1;   /* rgb(144, 180, 225) */
+  --celeste-soft:   #85B7E1;
+  --celeste-dark:   #5D93C2;
+  --celeste-light:  #C5DCF0;
+  --verde:          #85B7E1;
+  --verde-dark:     #5D93C2;
+  --negro:          #13304D;
+  --negro-soft:     #1B446B;
+  --gris:           #F5F5F5;
+  --gray-50:        #FFFFFF;
+  --gray-100:       #EDF2F7;
+  --gray-200:       #D6E3F0;
+  --gray-400:       #93AFC8;
+  --gray-600:       #5C7690;
+  --gray-800:       #2A4765;
+  --surface-light:  #F5F5F5;
+  --surface-dark:   #13304D;
+  --surface-card:   #FFFFFF;
+  --aws:            #85B7E1;
+  --aws-dark:       #6EA4D4;
   /* Layout */
   --max-w:        1200px;
   --r-sm:         8px;
   --r-md:         14px;
   --r-lg:         20px;
   --r-pill:       999px;
-  --shadow:       0 2px 12px rgba(46,45,44,.12);
-  --shadow-lg:    0 8px 32px rgba(46,45,44,.18);
+  --shadow:       0 2px 12px rgba(19,48,77,.12);
+  --shadow-lg:    0 8px 32px rgba(19,48,77,.2);
   --t:            0.22s cubic-bezier(.4,0,.2,1);
   --font-head:    'Barlow Condensed', sans-serif;
   --font-body:    'Barlow', sans-serif;
@@ -80,7 +73,7 @@ ul { list-style: none; }
 
 /* ─── HEADER ─────────────────────────────────────── */
 .header {
-  background: #FAAE05;
+  background: var(--surface-light);
   position: sticky; top: 0; z-index: 100;
   border-bottom: 3px solid rgba(0,0,0,0.1);
   transition: box-shadow var(--t);
@@ -94,12 +87,17 @@ ul { list-style: none; }
   display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
 }
 
-.logo-group { display: flex; align-items: center; gap: .7rem; }
-.escudo-wrap { flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,0,0,.3)); }
-.logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-.logo-gobierno { font-family: var(--font-head); font-size: .62rem; font-weight: 700; color: rgba(0,0,0,.6); letter-spacing: .14em; text-transform: uppercase; }
-.logo-corrientes { font-family: var(--font-head); font-size: 1.3rem; font-weight: 900; color: var(--negro); letter-spacing: .04em; text-transform: uppercase; line-height: 1; }
-.logo-sub-tag { font-family: var(--font-ui); font-size: .6rem; color: var(--negro-soft); font-weight: 600; letter-spacing: .06em; margin-top: .1rem; }
+.logo-group { display: flex; align-items: center; gap: 1rem; }
+.logo-main {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+.logo-gov {
+  height: 52px;
+  width: auto;
+  display: block;
+}
 
 /* Nav */
 .nav { display: flex; align-items: center; gap: .15rem; }
@@ -144,9 +142,9 @@ ul { list-style: none; }
 .hero-bg-layer {
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(250,205,5,.07) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 10% 20%, rgba(244,73,46,.06) 0%, transparent 55%),
-    linear-gradient(160deg, #ffffff 0%, #f5f0ea 50%, #fdf7f0 100%);
+    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(133,183,225,.22) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 10% 20%, rgba(8,26,44,.28) 0%, transparent 55%),
+    linear-gradient(160deg, #13304D 0%, #1C4166 55%, #2A5782 100%);
 }
 .hero-red-stripe {
   position: absolute;
@@ -216,20 +214,20 @@ ul { list-style: none; }
 .hero-title { display: flex; flex-direction: column; margin-bottom: 1.5rem; }
 .ht-aws {
   font-family: var(--font-head); font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: 700;
-  color: var(--red); letter-spacing: .15em; text-transform: uppercase; margin-bottom: .2rem;
+  color: var(--white); letter-spacing: .15em; text-transform: uppercase; margin-bottom: .2rem;
 }
 .ht-entrena { color: var(--amarillo-dark); }
 .ht-arg {
   font-family: var(--font-head);
-  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-size: clamp(2rem, 5.5vw, 4rem);
   font-weight: 900;
-  color: var(--negro); letter-spacing: -.01em; line-height: .95;
+  color: var(--white); letter-spacing: -.01em; line-height: .95;
   text-transform: uppercase;
   margin-bottom: .35rem;
 }
 .ht-corrientes {
   font-family: var(--font-head);
-  font-size: clamp(2rem, 5.5vw, 4rem);
+  font-size: clamp(3.5rem, 9vw, 7rem);
   font-weight: 800;
   color: var(--amarillo); letter-spacing: .04em;
   text-transform: uppercase;
@@ -243,21 +241,21 @@ ul { list-style: none; }
   border-radius: 2px;
 }
 
-.hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: var(--gray-600); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.75; }
-.hero-sub strong { color: var(--red); font-weight: 700; }
+.hero-sub { font-size: clamp(.95rem, 1.8vw, 1.1rem); color: rgba(245,245,245,.85); max-width: 600px; margin-bottom: 2.5rem; line-height: 1.75; }
+.hero-sub strong { color: var(--celeste); font-weight: 700; }
 
 /* Buttons */
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
 .btn-primary, .btn-primary-lg {
   display: inline-flex; align-items: center; gap: .6rem;
-  background: var(--red); color: var(--white);
+  background: var(--celeste); color: var(--red);
   font-family: var(--font-body); font-weight: 700; font-size: .98rem;
   padding: .85rem 2rem; border-radius: var(--r-pill); border: none; cursor: pointer;
   transition: background var(--t), transform var(--t), box-shadow var(--t);
-  box-shadow: 0 5px 20px rgba(244,73,46,.4); white-space: nowrap;
+  box-shadow: 0 5px 20px rgba(133,183,225,.35); white-space: nowrap;
 }
-.btn-primary:hover, .btn-primary-lg:hover { background: var(--red-dark); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(234,47,9,.55); }
+.btn-primary:hover, .btn-primary-lg:hover { background: var(--white); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(133,183,225,.5); }
 .btn-primary-lg { font-size: 1.02rem; padding: .95rem 2.2rem; }
 
 .btn-ghost {
@@ -498,9 +496,17 @@ ul { list-style: none; }
   display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
   padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-logo-row { display: flex; align-items: center; gap: .75rem; margin-bottom: 1rem; }
-.f-gov { font-family: var(--font-head); font-size: .6rem; font-weight: 700; color: rgba(255,255,255,.45); letter-spacing: .14em; text-transform: uppercase; }
-.f-prov { font-family: var(--font-head); font-size: 1.05rem; font-weight: 900; color: var(--white); letter-spacing: .04em; text-transform: uppercase; line-height: 1; }
+.footer-logo-row { display: flex; align-items: center; gap: .85rem; margin-bottom: 1rem; }
+.footer-logo-main {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.footer-logo-gov {
+  height: 44px;
+  width: auto;
+  display: block;
+}
 .f-desc { font-family: var(--font-body); font-size: .84rem; color: rgba(255,255,255,.55); line-height: 1.65; margin-bottom: 1.25rem; }
 .f-social { display: flex; gap: .55rem; }
 .social-link {
@@ -582,6 +588,7 @@ ul { list-style: none; }
   .btn-primary, .btn-ghost { justify-content: center; }
   .footer-inner { grid-template-columns: 1fr; }
   .floating-cta { right: 1rem; bottom: 1rem; }
-  .logo-sub-tag { display: none; }
+  .logo-main { height: 36px; }
+  .logo-gov { height: 42px; }
   .hero-logo-block { flex-direction: column; align-items: flex-start; gap: .6rem; }
 }
