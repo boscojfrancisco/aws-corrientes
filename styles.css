@@ -89,7 +89,7 @@ ul { list-style: none; }
 
 .logo-group { display: flex; align-items: center; gap: 1rem; }
 .logo-main {
-  height: 46px;
+  height: 40px;
   width: auto;
   display: block;
 }
@@ -98,7 +98,17 @@ ul { list-style: none; }
   width: auto;
   display: block;
 }
-
+.logo-separator {
+  color: rgba(19,48,77,.45);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.logo-aws-desarrolla {
+  height: 40px;
+  width: auto;
+  display: block;
+}
 /* Nav */
 .nav { display: flex; align-items: center; gap: .15rem; }
 .nav-link {
@@ -489,21 +499,56 @@ ul { list-style: none; }
 .footer {
   background: var(--bordo);
   border-top: 4px solid var(--amarillo);
-  padding: 3.5rem 1.5rem 0;
+  padding: 0 1.5rem 0;
+}
+.footer-logo-strip {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 1.4rem 0 1.1rem;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .footer-inner {
   max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
-  padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.1);
+  padding: 2rem 0 3rem;
+  border-bottom: 1px solid rgba(255,255,255,.1);
 }
-.footer-logo-row { display: flex; align-items: center; gap: .85rem; margin-bottom: 1rem; }
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .85rem 1rem;
+  margin-bottom: 0;
+}
 .footer-logo-main {
-  height: 36px;
+  height: 34px;
   width: auto;
   display: block;
 }
 .footer-logo-gov {
   height: 44px;
+  width: auto;
+  display: block;
+}
+.footer-logo-ptc {
+  height: 40px;
+  width: auto;
+  max-width: 220px;
+  display: block;
+}
+.footer-logo-separator {
+  color: rgba(19,48,77,.55);
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.footer-logo-aws-desarrolla {
+  height: 34px;
   width: auto;
   display: block;
 }
@@ -587,8 +632,14 @@ ul { list-style: none; }
   .hero-actions { flex-direction: column; }
   .btn-primary, .btn-ghost { justify-content: center; }
   .footer-inner { grid-template-columns: 1fr; }
+  .footer-logo-ptc { max-width: 170px; }
+  .footer-logo-aws-desarrolla { height: 26px; }
+  .footer-logo-main { height: 26px; }
   .floating-cta { right: 1rem; bottom: 1rem; }
-  .logo-main { height: 36px; }
+  .logo-main { height: 30px; }
   .logo-gov { height: 42px; }
+  .logo-aws-desarrolla { height: 30px; }
+  .logo-separator { font-size: 1.3rem; font-weight: 700; }
+  .footer-logo-separator { font-size: 1.5rem; }
   .hero-logo-block { flex-direction: column; align-items: flex-start; gap: .6rem; }
 }
